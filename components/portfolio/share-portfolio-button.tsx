@@ -52,7 +52,7 @@ export function SharePortfolioButton({ url, variant = "default" }: SharePortfoli
           {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           {copied ? "Copied!" : "Copy Link"}
         </DropdownMenuItem>
-        {typeof navigator.share === "function" && (
+        {navigator.share && (
           <DropdownMenuItem onClick={shareViaWebShare} className="gap-2">
             <Share2 className="w-4 h-4" />
             Share via...

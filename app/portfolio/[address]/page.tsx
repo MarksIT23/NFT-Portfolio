@@ -2,11 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, FileText, Award, Star, UserCheck } from "lucide-react"
-import { SharePortfolioButton } from "@/components/share-portfolio-button"
-import { VerificationDialog } from "@/components/verification-dialog"
-import { EndorsementDialog } from "@/components/endorsement-dialog"
-import { SkillBadges, SkillBadgesSummary } from "@/components/skill-badges"
-import { ResumeGenerator } from "@/components/resume-generator"
+import { SharePortfolioButton } from "@/components/portfolio/share-portfolio-button"
+import { VerificationDialog } from "@/components/dialogs/verification-dialog"
+import { EndorsementDialog } from "@/components/dialogs/endorsement-dialog"
+import { SkillBadges, SkillBadgesSummary } from "@/components/portfolio/skill-badges"
+import { ResumeGenerator } from "@/components/portfolio/resume-generator"
 
 // Mock data - in production this would fetch from blockchain/IPFS
 const mockPortfolioData = {

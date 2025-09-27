@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MintProjectDialog } from "@/components/mint-project-dialog"
-import { SharePortfolioButton } from "@/components/share-portfolio-button"
-import { VerificationDialog } from "@/components/verification-dialog"
+import { MintProjectDialog } from "@/components/dialogs/mint-project-dialog"
+import { SharePortfolioButton } from "@/components/portfolio/share-portfolio-button"
+import { VerificationDialog } from "@/components/dialogs/verification-dialog"
+import { ThemeToggle } from "@/components/theme/theme-toggle"
 import { Wallet, Plus, ExternalLink, Github, FileText, Award, Share2 } from "lucide-react"
 
 export default function HomePage() {
@@ -67,21 +68,25 @@ export default function HomePage() {
               <h1 className="text-xl font-semibold text-foreground">NFT Portfolio</h1>
             </div>
 
-            {!isConnected ? (
-              <Button onClick={connectWallet} className="gap-2">
-                <Wallet className="w-4 h-4" />
-                Connect Wallet
-              </Button>
-            ) : (
-              <div className="flex items-center gap-3">
-                <Badge variant="secondary" className="font-mono text-xs">
-                  {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
-                </Badge>
-                <Button variant="outline" size="sm" onClick={disconnectWallet}>
-                  Disconnect
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+
+              {!isConnected ? (
+                <Button onClick={connectWallet} className="gap-2">
+                  <Wallet className="w-4 h-4" />
+                  Connect Wallet
                 </Button>
-              </div>
-            )}
+              ) : (
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary" className="font-mono text-xs">
+                    {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+                  </Badge>
+                  <Button variant="outline" size="sm" onClick={disconnectWallet}>
+                    Disconnect
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </header>
